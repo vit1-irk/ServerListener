@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="AppTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#9c27b0</item>
+        <item name="colorPrimaryDark">#7b1fa2</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorForeground">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+</resources>

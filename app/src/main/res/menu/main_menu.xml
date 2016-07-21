@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_settings"
+        android:actionLayout="@layout/activity_main"
+        android:title="@string/settings_string" />
+    <item
+        android:id="@+id/action_clean_cache"
+        android:actionLayout="@layout/activity_main"
+        android:title="@string/clear_cache_string" />
+    <item
+        android:id="@+id/action_help"
+        android:actionLayout="@layout/activity_main"
+        android:title="@string/help_string" />
+</menu>

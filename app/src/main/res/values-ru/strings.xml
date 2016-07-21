@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ServerListener</string>
+    <string name="title_activity_help">Справка</string>
+    <string name="title_activity_settings">Другие настройки</string>
+    <string name="large_text">Здесь пока ничего нет</string>
+    <string name="settings_string">Настройки</string>
+    <string name="clear_cache_string">Очистить кэш</string>
+    <string name="help_string">Справка</string>
+    <string name="service_toggle_state_string">Включить службу</string>
+    <string name="working_protocol_string">Протокол работы:</string>
+    <string name="server_address_string">Адрес сервера:</string>
+    <string name="time_interval_string">Интервал времени в минутах:</string>
+    <string name="custom_action_string">Действие при нажатии на уведомление:</string>
+    <string name="choose_string">Выбрать</string>
+    <string name="apply_settings_string">Применить параметры</string>
+</resources>
