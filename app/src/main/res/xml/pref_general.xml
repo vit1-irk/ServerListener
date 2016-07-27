@@ -4,11 +4,6 @@
         android:key="vibrate"
         android:title="Вибрация в уведомлениях" />
     <ListPreference
-        android:entries="@array/app_languages"
-        android:entryValues="@array/app_languages_values"
-        android:key="app_language"
-        android:title="Язык" />
-    <ListPreference
         android:entries="@array/errors_behaviour"
         android:entryValues="@array/errors_behaviour_values"
         android:key="errors_behaviour"

@@ -6,16 +6,6 @@
         <item>/x/c (special)</item>
     </string-array>
 
-    <string-array name="app_languages">
-        <item>Русский</item>
-        <item>English</item>
-    </string-array>
-
-    <string-array name="app_languages_values">
-        <item>russian</item>
-        <item>english</item>
-    </string-array>
-
     <string-array name="errors_behaviour">
         <item>Do nothing (default)</item>
         <item>Throw notification</item>

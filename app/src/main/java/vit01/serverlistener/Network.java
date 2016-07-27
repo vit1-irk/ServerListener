@@ -28,6 +28,7 @@ public class Network {
                 return downloadUrl(url, data);
             } catch (Exception exception) {
                 Log.w(appName, "Throw Exception: " + exception);
+                exception.printStackTrace();
                 return null;
             }
         } else return null;
@@ -41,8 +42,10 @@ public class Network {
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(15000);
 
-            if (data == null) conn.setRequestMethod("GET");
-            else {
+            if (data == null) {
+                conn.setRequestMethod("GET");
+                conn.setDoInput(true);
+            } else {
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-type", "application/x-www-form-urlencoded");
                 conn.setDoOutput(true);
@@ -52,14 +55,13 @@ public class Network {
                 wr.flush();
             }
 
-            conn.setDoInput(true);
             conn.connect();
             int response = conn.getResponseCode();
 
             Log.d(appName, "ServerResponse: " + response);
             is = conn.getInputStream();
 
-            return readIt(is, 50000); // just magic number, nothing more
+            return readIt(is, 50000);
         } finally {
             if (is != null) is.close();
         }

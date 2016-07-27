@@ -76,11 +76,12 @@ public class workerJob extends BroadcastReceiver {
                         .setSmallIcon(R.drawable.ic_notifications_black_24dp)
                         .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                         .setContentTitle(title)
-                        .setContentText(text);
+                        .setContentText(text)
+                        .setAutoCancel(true);
 
         if (vibrate) {
             mBuilder.setVibrate(vibrate_pattern);
-        }
+        } else mBuilder.setVibrate(null);
 
         if (big_text) {
             mBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(text));
@@ -108,18 +109,10 @@ public class workerJob extends BroadcastReceiver {
         mNotificationManager.notify(getNotificationID(), mBuilder.build());
     }
 
-    public void pass_to_JSON_api(Context context, String url, SharedPreferences prefManager, boolean report_errors) {
+    public void pass_to_JSON_api(Context context, String address, SharedPreferences prefManager, boolean report_errors) {
         String currentToken = prefManager.getString("ts_id", "0");
-        JSONObject firstJson = new JSONObject();
 
-        try {
-            firstJson.put("ts_id", currentToken);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        String toServer = "ts_id=" + URLEncoder.encode(firstJson.toString());
-        String address = prefManager.getString("server_adress", "null");
+        String toServer = "ts_id=" + URLEncoder.encode(currentToken);
         address = address.replaceAll("\\{ts_id\\}", currentToken);
 
         String server_answer = Network.getFile(context, address, toServer);
@@ -141,7 +134,9 @@ public class workerJob extends BroadcastReceiver {
             editor.putString("ts_id", new_token);
             editor.apply();
 
-            json_notifications = parsed_answer.getJSONArray("notifications");
+            if (!parsed_answer.isNull("notifications")) {
+                json_notifications = parsed_answer.getJSONArray("notifications");
+            } else return;
         } catch (JSONException e) {
             Log.e(appName, "Json error" + e.toString());
             if (report_errors)
@@ -173,7 +168,7 @@ public class workerJob extends BroadcastReceiver {
         String server_answer = Network.getFile(context, url, null);
         if (server_answer == null) {
             if (report_errors)
-                Show_Notification(context, appName, "Error getting server info (json api)", false);
+                Show_Notification(context, appName, "Error getting server info (xc api)", false);
             return;
         }
 
