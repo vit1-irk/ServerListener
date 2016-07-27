@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent executeIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
                     executeIntent.putExtra(Intent.EXTRA_INTENT, new Intent(Intent.ACTION_CREATE_SHORTCUT));
-                    executeIntent.putExtra(Intent.EXTRA_TITLE, "Новое действие");
+                    executeIntent.putExtra(Intent.EXTRA_TITLE, getString(R.string.new_action));
                     startActivityForResult(executeIntent, 14); // magic number for home screen shortcut
                 }
             });
@@ -117,7 +117,9 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("xc_data", "null");
                 editor.putString("ts_id", "0");
                 editor.commit();
-                Toast.makeText(MainActivity.this, "Кэш очищен", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,
+                        getString(R.string.cache_clear_done),
+                        Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_help:
                 startActivity(new Intent(this, HelpActivity.class));
@@ -139,7 +141,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         } else {
-            Toast.makeText(MainActivity.this, "Неа, не выбрал", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,
+                    getString(R.string.action_none), Toast.LENGTH_SHORT).show();
         }
     }
 

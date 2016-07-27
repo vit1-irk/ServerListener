@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name" translatable="false">ServerListener</string>
 
+    <string name="service_restart">ServerListener is (re)starting</string>
+    <string name="new_action">New action</string>
+    <string name="cache_clear_done">Cache is cleared</string>
+    <string name="action_none">Action was not chosen</string>
+    <string name="new_messages">New messages:</string>
+    <string name="cant_run_custom_action">Can not run custom intent</string>
+    <string name="server_address_typo">Something wrong with server address!</string>
+
     <string-array name="data_sync_types">
         <item>json notification API</item>
         <item>/x/c (special)</item>
@@ -116,4 +124,9 @@
     <string name="custom_action_string">Custom notification action:</string>
     <string name="choose_string">Choose</string>
     <string name="apply_settings_string">Apply quick settings</string>
+    <string name="vibrate_pref_string">Vibration in notifications</string>
+    <string name="ts_id_summary">Server needs this to fetch next data</string>
+    <string name="errors_behaviour_pref_string">Errors behaviour</string>
+    <string name="errors_behaviour_summary">Network inaccessibility is considered too</string>
+    <string name="ts_id_pref_string">Current ID for JSON-API</string>
 </resources>

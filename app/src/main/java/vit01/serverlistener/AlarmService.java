@@ -56,7 +56,10 @@ public class AlarmService extends Service {
                 System.currentTimeMillis() + 1000 * 60, // запустится после одной минуты
                 1000 * 60 * fireDuration, // интервал обновления
                 jobPendingIntent);
-        Toast.makeText(AlarmService.this, "ServerListener (пере)запускается", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(AlarmService.this,
+                getString(R.string.service_restart),
+                Toast.LENGTH_SHORT).show();
     }
 
     public void stopAlarm() {

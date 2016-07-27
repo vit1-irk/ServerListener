@@ -2,18 +2,18 @@
     <CheckBoxPreference
         android:checked="false"
         android:key="vibrate"
-        android:title="Вибрация в уведомлениях" />
+        android:title="@string/vibrate_pref_string" />
     <ListPreference
         android:entries="@array/errors_behaviour"
         android:entryValues="@array/errors_behaviour_values"
         android:key="errors_behaviour"
-        android:summary="Или при отсутствии интернета"
-        android:title="Поведение при ошибках" />
+        android:summary="@string/errors_behaviour_summary"
+        android:title="@string/errors_behaviour_pref_string" />
     <EditTextPreference
         android:defaultValue="0"
         android:inputType="number|textNoSuggestions"
         android:key="ts_id"
-        android:summary="Нужен серверу для определения следующих данных"
-        android:title="Текущий ID для сервера" />
+        android:summary="@string/ts_id_summary"
+        android:title="@string/ts_id_pref_string" />
 
 </PreferenceScreen>

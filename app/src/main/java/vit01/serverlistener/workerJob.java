@@ -54,7 +54,8 @@ public class workerJob extends BroadcastReceiver {
 
         if (address.equals("NULL")) {
             if (report_errors)
-                Show_Notification(context, "ServerListener", "Что-то не так с адресом сервера!", false);
+                Show_Notification(context, appName,
+                        context.getString(R.string.server_address_typo), false);
             return;
         }
 
@@ -93,8 +94,9 @@ public class workerJob extends BroadcastReceiver {
             try {
                 resultIntent = Intent.parseUri(custom_intent, 0);
             } catch (URISyntaxException e) {
-                Toast.makeText(context, "Не могу запустить выбранное приложение", Toast.LENGTH_SHORT).show();
-                Log.e(appName, "Can not run intent " + e.toString());
+                String errorstr = context.getString(R.string.cant_run_custom_action);
+                Toast.makeText(context, errorstr, Toast.LENGTH_SHORT).show();
+                Log.e(appName, errorstr + " " + e.toString());
                 resultIntent = new Intent(context, MainActivity.class);
                 e.printStackTrace();
             }
@@ -222,7 +224,9 @@ public class workerJob extends BroadcastReceiver {
             if (notification_text.length() > 0) // костыль с последним переносом строки
                 notification_text = notification_text.substring(0, notification_text.length() - 1);
 
-            Show_Notification(context, "Новые сообщения: " + total.toString(), notification_text, true);
+            Show_Notification(context,
+                    context.getString(R.string.new_messages) + " " + total.toString(),
+                    notification_text, true);
         }
     }
 
