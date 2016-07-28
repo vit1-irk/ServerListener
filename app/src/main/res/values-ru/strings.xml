@@ -3,7 +3,6 @@
     <string name="app_name">ServerListener</string>
     <string name="title_activity_help">Справка</string>
     <string name="title_activity_settings">Другие настройки</string>
-    <string name="large_text">Здесь пока ничего нет</string>
     <string name="settings_string">Настройки</string>
     <string name="clear_cache_string">Очистить кэш</string>
     <string name="help_string">Справка</string>
@@ -30,5 +29,26 @@
     <string name="new_action">Новое действие</string>
     <string name="new_messages">Новые сообщения: </string>
     <string name="server_address_typo">Что-то не так с адресом сервера!</string>
-    <string name="service_restart">ServerListener (пере)запускается</string>
+    <string name="service_restart">ServerListener (пере)запускается</string><string name="large_text">ServerListener - это приложение для получения уведомлений со своего сервера (например, для отслеживания ботов).\n
+Алгоритм его работы прост: стучится раз в N минут на указанный сервер (используя AlarmManager). Если находит что-то новое, то выводит оповещение. Поддерживаются 2 протокола и настраиваемые действия при нажатии на уведомление (гарантируется работа в связке с приложением Termux).\n\n
+
+Github репозиторий: <a href="https://github.com/vit1-irk/ServerListener">https://github.com/vit1-irk/ServerListener</a>\n\n
+
+Поддерживаемые API:\n\n
+
+<b>/x/c</b>\n\n
+
+Одно из расширений протокола обмена технологии IDEC (<a href="https://ii-net.tk/idec-doc/">https://ii-net.tk/idec-doc/</a>). Узнать подробнее (+ описание схемы): <a href="https://ii-net.tk/idec-doc/?p=extensions">https://ii-net.tk/idec-doc/?p=extensions</a>\n\n
+
+Нужен для отслеживания новых сообщений на конкретной ноде/станции. Через дополнительное действие можно настроить открытие клиента IDEC при нажатии на уведомление.\n\n
+
+В строку адреса сервера требуется указать полный URL формата /x/c со всеми отслеживаемыми эхоконференциями. Например, <a href="http://spline.rooker.ru/ii/ii-point.php?q=/x/c/pipe.2032/ii.test.14/mlp.15">http://spline.rooker.ru/ii/ii-point.php?q=/x/c/pipe.2032/ii.test.14/mlp.15</a>\n\n
+
+<b>JSON API</b>\n\n
+
+Велосипед, который пригодится всем остальным пользователям для своих ботов. Для получения новых уведомлений использует числовой ID (см. настройки), который увеличивается на стороне сервера при поступлении новых данных.\n\n
+
+Описание формата и рабочий образец сервера на Common Lisp - в корне Git репозитория.\n\n
+
+По умолчанию ServerListener отсылает ID через POST-параметр ts_id, но возможно и подставить его в GET-запрос, указав в нужном месте строки адреса {ts_id}\n\n</string>
 </resources>

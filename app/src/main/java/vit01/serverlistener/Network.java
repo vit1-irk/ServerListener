@@ -61,16 +61,24 @@ public class Network {
             Log.d(appName, "ServerResponse: " + response);
             is = conn.getInputStream();
 
-            return readIt(is, 50000);
+            return readIt(is);
         } finally {
             if (is != null) is.close();
         }
     }
 
-    public static String readIt(InputStream stream, int len) throws IOException {
+    public static String readIt(InputStream stream) throws IOException {
         Reader reader = new InputStreamReader(stream, "UTF-8");
-        char[] buffer = new char[len];
-        reader.read(buffer);
-        return new String(buffer);
+        final char[] buffer = new char[500];
+        StringBuilder out = new StringBuilder();
+        int read;
+
+        do {
+            read = reader.read(buffer, 0, buffer.length);
+            if (read > 0) out.append(buffer, 0, read);
+        }
+        while (read >= 0);
+
+        return new String(out);
     }
 }
